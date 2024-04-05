@@ -1,0 +1,49 @@
+<style>
+  .articles-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-gap: 20px;
+  }
+
+  .article {
+    border: 1px solid #ccc;
+    padding: 20px;
+  }
+
+  .article img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+  }
+
+  .article h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+
+  .article p {
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 10px;
+  }
+
+  .article a {
+    color: #007bff;
+    text-decoration: none;
+  }
+
+  .article a:hover {
+    text-decoration: underline;
+  }
+</style>
+
+<div class="articles-grid">
+  {% for article in blogs['news'].articles %}
+    <div class="article">
+      <img src="{{ article.image.src | img_url: 'large' }}" alt="{{ article.title }}">
+      <h2>{{ article.title }}</h2>
+      <p>{{ article.excerpt }}</p>
+      <a href="{{ article.url }}">View More</a>
+    </div>
+  {% endfor %}
+</div>

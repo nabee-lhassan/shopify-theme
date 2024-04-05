@@ -1,0 +1,26 @@
+{
+  "sections": {
+    "my-article": {
+      "type": "my-article",
+      "blocks": {
+        "thumbnail": {
+          "type": "feature_image"
+        },
+        "title": {
+          "type": "article_title"
+        },
+        "author": {
+          "type": "article_author"
+        },
+        "date": {
+          "type": "article_published_at"
+        },
+        "content": {
+          "type": "article_content"
+        }
+      },
+      "block_order": ["title", "thumbnail", "author", "date", "content"]
+    }
+  },
+  "order": ["my-article"]
+}

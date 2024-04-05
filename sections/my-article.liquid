@@ -1,0 +1,99 @@
+<article class="post-container">
+
+  {% for block in section.blocks %}
+    {% case block.type %}
+      {% when "feature_image" %}
+        {% if section.settings.my_image %}
+          <img
+            class="post-image"
+            src="{{ article.image.src | img_url: 'master' }}"
+            alt="{{ article.image.alt | escape }}">
+        {% endif %}
+      {% when "article_title" %}
+        {% if section.settings.my_title %}
+          <h1 class="post-title">{{ article.title }}</h1>
+        {% endif %}
+      {% when "article_author" %}
+        {% if section.settings.author_name %}
+          <small class="post-author">By {{ article.author }}</small>
+        {% endif %}
+      {% when "article_content" %}
+        {% if section.settings.my_content %}
+          <div class="post-content">
+            {{ article.content }}
+          </div>
+        {% endif %}
+      {% when "article_published_at" %}
+        {% if section.settings.display_time %}
+          <p class="post-date">Published on: {{ article.published_at | date: "%B %d, %Y %I:%M %p" }}</p>
+        {% endif %}
+    {% endcase %}
+  {% endfor %}
+
+</article>
+
+
+{% schema %}
+  {
+    "name": "my article",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "my_title",
+        "label": "Display title",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "my_image",
+        "label": "Display featured image",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "author_name",
+        "label": "Display author",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "display_time",
+        "label": "Display time",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "my_content",
+        "label": "Show content",
+        "default": true
+      }
+    ],
+    "blocks": [
+      {
+        "type": "feature_image",
+        "name": "Thumbnail",
+        "limit": 1
+      },
+      {
+        "type": "article_title",
+        "name": "Title",
+        "limit": 1
+      },
+      {
+        "type": "article_author",
+        "name": "Author",
+        "limit": 1
+      },
+      {
+        "type": "article_published_at",
+        "name": "Date",
+        "limit": 1
+      },
+      {
+        "type": "article_content",
+        "name": "Content",
+        "limit": 1
+      }
+    ]
+  }
+{% endschema %}
