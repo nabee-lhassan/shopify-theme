@@ -1,4 +1,21 @@
 /* Nabeel css start */
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap');
+
+
+
+body h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+a,
+li,
+p {
+
+  font-family: "Comfortaa", sans-serif !important;
+}
+
 
 .post-container {
   max-width: 800px;
@@ -54,6 +71,8 @@
   --alpha-link: 0.85;
   --alpha-badge-border: 0.1;
 }
+
+
 
 .product-card-wrapper .card,
 .contains-card--product {
